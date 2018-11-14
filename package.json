@@ -1,0 +1,32 @@
+{
+  "name": "fluxtools-example",
+  "version": "1.0.0",
+  "description": "Example project to show flux pattern using fluxtools",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@arwidt/fluxtools": "0.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w",
+    "compress": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arwidt/fluxtools-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arwidt/fluxtools-example/issues"
+  },
+  "homepage": "https://github.com/arwidt/fluxtools-example#readme"
+}
