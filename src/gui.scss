@@ -1,0 +1,23 @@
+
+.gui {
+    display: block;
+    background: white;
+    border: 3px solid black;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+
+    padding: 10px;
+
+    z-index: 10;
+}
+
+.gui__button {
+    background: black;
+    padding: 10px;
+    border: 2px solid grey;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    outline: 0;
+}

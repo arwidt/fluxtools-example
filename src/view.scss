@@ -1,0 +1,129 @@
+
+.gfx-area {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.item {
+    position: relative;
+    width: 30%;
+    display: block;
+    background: white;
+    border: 5px solid black;
+    flex-grow: 1;
+
+    &[data-background="red"] {
+        background: red;
+    }
+
+    &[data-background="blue"] {
+        background: blue;
+    }
+
+    &[data-background="green"] {
+        background: green;
+    }
+
+    &[data-shape="circle"] {
+        &:before {
+            content: "";
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background: white;
+            border: 5px solid black;
+        }
+    }
+
+    &[data-shape="square"] {
+        &:before {
+            content: "";
+            width: 100px;
+            height: 100px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background: white;
+            border: 5px solid black;
+        }
+    }
+
+    &[data-shape="triangle"] {
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-top: 90px solid white;
+            z-index: 1;
+        }
+
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: calc(50% + 3px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-top: 108px solid black;
+        }
+    }
+
+    &[data-shapecolor="yellow"] {
+        &[data-shape="circle"], &[data-shape="square"] {
+            &:before {
+                background: yellow;
+            }
+        }
+        &[data-shape="triangle"] {
+            &:before {
+                border-top-color: yellow;
+            }
+        }
+    }
+
+    &[data-shapecolor="cyan"] {
+        &[data-shape="circle"], &[data-shape="square"] {
+            &:before {
+                background: cyan;
+            }
+        }
+        &[data-shape="triangle"] {
+            &:before {
+                border-top-color: cyan;
+            }
+        }
+    }
+
+    &[data-shapecolor="purple"] {
+        &[data-shape="circle"], &[data-shape="square"] {
+            &:before {
+                background: purple;
+            }
+        }
+        &[data-shape="triangle"] {
+            &:before {
+                border-top-color: purple;
+            }
+        }
+    }
+}
