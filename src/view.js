@@ -9,6 +9,12 @@ const _elements = {
     views: {}
 };
 
+// Factory object for one box
+// A box has a background color
+// a shape and shapecolor.
+// This is a dumb part and
+// only takes values from the view
+// and changes accordingly.
 const _boxFactory = (function() {
 
     // Factory object
@@ -30,8 +36,6 @@ const _boxFactory = (function() {
 
         // Render new values
         inst.renderValue = function(val) {
-            console.log(val);
-            
             element.setAttribute('data-shape', val.shape);
             element.setAttribute('data-background', val.background);
             element.setAttribute('data-shapecolor', val.shapecolor);
@@ -56,18 +60,33 @@ const _boxFactory = (function() {
 
 })();
 
+// Handle the store change
+// the subscription will get the action
+// which is always the store change action.
+// The payload will have .diff containing what
+// parts of the object that changed and a clone
+// of the current store.
 const _handleStoreChange = function(action, payload) {
-    console.log("VIEW:", action, payload);
 
+    // Using the fluxtool helper function wantedDiffKeys
+    // to filter for only wanted diffs.
     if (wantedDiffKeys(payload.diff, ['view'])) {
-        console.log("VIEWS");
 
+        // Save the ids from the store
+        // to later remove boxes not matching.
         const storeIds = [];
         payload.store.views.forEach(value => {
+
+            // Add id to list of ids.
             storeIds.push("" + value.id);
+            
+            // If box with id already in views.
             if (_elements.views.hasOwnProperty(value.id)) {
+                // Add the new values to each box
                 _elements.views[value.id].renderValue(value);
             } else {
+                // Box is a new box, then we create it
+                // and add to list of boxes.
                 _elements.views[value.id] = _boxFactory.create({
                     container: _elements.root,
                     value: value
@@ -86,10 +105,10 @@ const _handleStoreChange = function(action, payload) {
     }
 };
 
+// Init the view and start subscribing
+// to the change event from store.
 _view.init = function() {
-    console.log("VIEW");
     _elements["root"] = document.querySelector('.gfx-area');
-    
     PubSub.subscribe(actions.STORE_CHANGED, _handleStoreChange);
 };
 

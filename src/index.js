@@ -5,7 +5,7 @@ import gui from "./gui.js";
 
 import "./index.scss";
 
-String.prototype.toDOM=function(){
+String.prototype.toDOM = function(){
     var d=document
         ,i
         ,a=d.createElement("div")
@@ -15,8 +15,8 @@ String.prototype.toDOM=function(){
     return b;
 };
 
-window.f = {};
-
+// When document is loaded we init all part
+// of the example.
 document.addEventListener("DOMContentLoaded", function() {
     view.init();
     gui.init();
