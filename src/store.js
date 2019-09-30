@@ -1,6 +1,7 @@
 "use strict";
 
-import { defineStore, PubSub, cloneObject, deepObjectDiff, mergeObjects } from "@arwidt/fluxtools";
+import { defineStore, cloneObject, deepObjectDiff, mergeObjects } from "@arwidt/fluxtools";
+import PubSub from 'pubsub-js';
 import actions from "./actions.js";
 
 const _store = {};

@@ -1,5 +1,5 @@
 
-import { PubSub } from "@arwidt/fluxtools";
+import PubSub from 'pubsub-js';
 import actions from "./actions.js";
 
 import "./gui.scss";

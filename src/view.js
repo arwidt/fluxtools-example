@@ -1,6 +1,7 @@
 "use strict";
 
-import { PubSub, wantedDiffKeys } from "@arwidt/fluxtools";
+import {wantedDiffKeys } from "@arwidt/fluxtools";
+import PubSub from 'pubsub-js';
 import actions from "./actions.js";
 import "./view.scss";
 
