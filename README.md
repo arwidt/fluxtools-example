@@ -1,6 +1,14 @@
 # FLUXTOOLS-EXAMPLE
 
-Example project to show flux pattern using fluxtools  
+Example project to show flux pattern using fluxtools
+
+How to run the example,
+
+Install all the libs `npm install`  
+Install node-static to start a server `npm i -g node-static`  
+Run webpack build `npm run build`  
+Start the server `static .`  
+Go the `http://localhost:8080`  
 
 # FLUXTOOLS
 
